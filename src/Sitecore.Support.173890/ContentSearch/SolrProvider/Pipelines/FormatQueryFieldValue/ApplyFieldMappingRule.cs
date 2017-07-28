@@ -5,7 +5,8 @@
     {
         protected override void FormatArgs(string schemaType, FormatQueryFieldValueArgs args)
         {
-            if (schemaType.ToLower() == "datetime")
+            string schemaTypeToLower = schemaType.ToLower();
+            if (schemaTypeToLower == "datetime" || schemaTypeToLower == "tdate" || schemaTypeToLower == "date")
             {
                 args.FieldValue = Escape(args.FieldValue, "", true, args.ExcludeEscapeCharacters);
                 return;
